@@ -12,7 +12,7 @@ const Sidebar = Keyframes.Spring({
   // or async functions with side-effects
   close: async call => {
     await delay(400)
-    await call({ delay: 0, x: -100 })
+    await call({ delay: 0, x: 100 })
   },
 })
 
@@ -23,7 +23,7 @@ const Content = Keyframes.Trail({
   //   { x: -100, opacity: 0, delay: 0 },
   // ],
   open: { x: 0, opacity: 1, delay: 100 },
-  close: { x: -100, opacity: 0, delay: 0 },
+  close: { x: 100, opacity: 0, delay: 0 },
 })
 
 
@@ -69,20 +69,34 @@ const Single = ({project}) => {
   const icon = open ? 'fold' : 'unfold';
 
   return (
-    <Project>
+    <Project >
 
-      <div style={{ background: 'lightblue', width: '100%', height: '100%' }}>
-        <div
-          style={{width: '20px', height: '20px', background: 'red'}}
-          onClick={toggle}
-        />
-        <Sidebar native state={state}>
+      <div className="project-justify" onClick={toggle}>
+
+        {/* waves */}
+        <Sidebar native state={state} >
+          {({ x }) => (
+
+            <animated.div
+            style={{
+              transform: x.interpolate(x => `translate3d(${x+15}%,0,0)`)
+            }}>
+
+              {project.background}
+
+          </animated.div>
+          )}
+        </Sidebar>
+   
+            {/* hidden content */}
+        <Sidebar native state={state} >
           {({ x }) => (
             <animated.div
               className="sidebar"
               style={{
                 transform: x.interpolate(x => `translate3d(${x}%,0,0)`),
               }}>
+                
               <Content
                 native
                 items={items}
@@ -95,15 +109,18 @@ const Single = ({project}) => {
                       transform: x.interpolate(x => `translate3d(${x}%,0,0)`),
                       ...props,
                     }}>
-                      {/* <Form.Item className={i === 0 ? 'middle' : ''}> */}
+                   
                       {item}
-                    {/* </Form.Item> */}
+                   
                   </animated.div>
                 )}
               </Content>
             </animated.div>
           )}
         </Sidebar>
+
+       
+
       </div>
 
     </Project>

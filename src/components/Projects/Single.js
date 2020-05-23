@@ -80,7 +80,7 @@ const Single = ({project}) => {
   const icon = open ? 'fold' : 'unfold';
 
   return (
-    <Project svgColors={[project.wave_color_1, project.wave_color_2, project.wave_color_3]} >
+    <Project fontPrimaryColor={project.font_primary_color} primaryColor={project.primary_color} svgColors={[project.wave_color_1, project.wave_color_2, project.wave_color_3]} >
 
       <div className="project-main-content">
         <div className="main-content-positioning">
@@ -140,7 +140,7 @@ const Single = ({project}) => {
                   )}
                 </Content>
               </div>
-              
+
             </animated.div>
           )}
         </Sidebar>

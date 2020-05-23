@@ -8,12 +8,14 @@ export const Container = styled.div`
 
 export const Project = styled.div`
   height: 100vh;
-  background: lightblue;
+  background: ${props => props.primaryColor};
+  color: ${props => props.fontPrimaryColor};
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
 
   .project-main-content{
+    
     position: relative;
     // top: 50%;
     // transform: translate(0, -50%);
@@ -73,7 +75,6 @@ export const Project = styled.div`
   .project-justify{
     overflow: hidden;
     position: absolute;
-    background: 'lightblue';
     width: 100%; height: 100%;
     display: flex;
     flex-direction: row;

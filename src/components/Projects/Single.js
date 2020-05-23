@@ -1,9 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
 
-import { Keyframes, animated } from 'react-spring/renderprops';
+import { Keyframes, animated, Spring } from 'react-spring/renderprops';
 import delay from 'delay';
 import { Project } from './ProjectsCSS';
+import { Arrow } from '../../Icons';
 
 // Creates a spring with predefined animation slots
 const Sidebar = Keyframes.Spring({
@@ -47,9 +48,11 @@ const Single = ({project}) => {
   // ITEMS for content
   const items = [
     <div className="technologies">
-      <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />
-      <div>
+      <div className="technologies--top">
+        <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />
         <h2>Technologies</h2>
+      </div>
+      <div className="technologies--bot">
         <ul>
           <li>1</li>
           <li>2</li>
@@ -58,9 +61,11 @@ const Single = ({project}) => {
       </div>
     </div>,
     <div className="features">
-      <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />
-      <div>
+      <div className="features--top">
+        <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />
         <h2>Features</h2>
+      </div>
+      <div className="features--bot">
         <ul>
           <li>1</li>
           <li>2</li>
@@ -69,9 +74,11 @@ const Single = ({project}) => {
       </div>
     </div>,
     <div className="presentation">
-      <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />
-      <div>
+      <div className="presentation--top">
+        <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />
         <h2>Presentation</h2>
+      </div>
+      <div className="presentation--bot">
         <a href="https://www.google.com" target="_blank"><button>Youtube</button></a>
       </div>
     </div>,
@@ -115,7 +122,7 @@ const Single = ({project}) => {
           <h1>{project.name}</h1>
           <h4>{project.desc_short}</h4>
           <p>{project.desc_long}</p>
-          <button><a href={project.link}>LIVE PAGE</a></button>
+          <a href={project.link}><button>LIVE PAGE</button></a>
         </div>
       </div>
 
@@ -132,7 +139,19 @@ const Single = ({project}) => {
             style={{
               transform: x.interpolate(x => `translate3d(${x+30}%,0,0)`)
             }}>
-              <div className="show-more-less">{open === false ? "more" : "less"}</div>
+
+              <Spring
+                delay={250}
+                to={{ transform: open === false ? "rotateZ(0deg)" : "rotateZ(180deg)" }}
+              >
+
+                {props =>
+                <animated.div className="show-more-less" style={props}>
+                  <Arrow />
+                </animated.div>
+                } 
+              </Spring>
+             
               {project.background}
 
           </animated.div>

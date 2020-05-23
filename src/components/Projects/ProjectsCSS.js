@@ -85,7 +85,10 @@ export const Project = styled.div`
 
     .svg-waves-container{
       position: relative;
+
       .show-more-less{
+        width: 25px; height: 25px;
+        transform-origin: center center;
         position: absolute;
         top: 10%; left: 30%;
         transform: translate(0, 0);
@@ -93,8 +96,15 @@ export const Project = styled.div`
         //   top: 10%; left: 50%;
         //   transform: translate(-50%, -50%);
         // }
+        svg{
+          fill: white;
+          // width: 25px; height: auto;
+        }
       }
+
     }
+
+
 
     .sidebar{
       cursor: pointer;
@@ -117,12 +127,18 @@ export const Project = styled.div`
         transform: translate(0, -50%);
 
         .technologies, .features, .presentation{
-          display: flex; flex-direction: row;
+          display: flex; flex-direction: column;
           img{
-            width: auto; height: 100px;
+            width: auto; height: 35px;
           }
           &>div{
-            display: flex; flex-direction: column;
+            display: flex; flex-direction: row;
+            h2{
+              margin: 0;
+            }
+            ul > li{
+              list-style: none;
+            }
           }
         }
 

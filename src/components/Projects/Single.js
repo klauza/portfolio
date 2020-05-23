@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
 
 import { Keyframes, animated } from 'react-spring/renderprops';
@@ -10,7 +10,7 @@ const Sidebar = Keyframes.Spring({
   // Slots can take arrays/chains,
   // peek: [{ x: 0, from: { x: -100 }, delay: 500 }, { x: -100, delay: 800 }],
   // single items,
-  open: { delay: 0, x: -5 },
+  open: { delay: 0, x: 0 },
   // or async functions with side-effects
   close: async call => {
     await delay(400)
@@ -43,18 +43,47 @@ const Content = Keyframes.Trail({
 
 const Single = ({project}) => {
 
+
   // ITEMS for content
   const items = [
     <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />,
-    <div>Div_{project.id}</div>,
-    <div>Div_2</div>,
-    <React.Fragment>
-      <input type="checkbox" />Check
-      <a href="https://www.google.com" target="_blank"><button>Btn</button></a>
-    </React.Fragment>,
+    <div className="technologies">
+      <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />
+      <div>
+        <h2>Technologies</h2>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </div>
+    </div>,
+    <div className="features">
+      <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />
+      <div>
+        <h2>Features</h2>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </div>
+    </div>,
+    <div className="presentation">
+      <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />
+      <div>
+        <h2>Presentation</h2>
+        <a href="https://www.google.com" target="_blank"><button>Youtube</button></a>
+      </div>
+    </div>,
+    <a href="https://www.google.com" target="_blank"><button>Github</button></a>
+   
   ]
 
   const [open, setOpen] = useState(undefined);
+
+
+
 
 
   const toggle = () => setOpen(!open);
@@ -76,6 +105,7 @@ const Single = ({project}) => {
   : open
   ? 'open'
   : 'close';
+  
 
   const icon = open ? 'fold' : 'unfold';
 
@@ -117,7 +147,7 @@ const Single = ({project}) => {
               onClick={toggle}
               className="sidebar"
               style={{
-                transform: x.interpolate(x => `translate3d(${x+15}%,0,0)`),
+                transform: x.interpolate(x => `translate3d(${x}%,0,0)`),
               }}>
 
               <div className="sidebar-content">

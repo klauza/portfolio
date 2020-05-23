@@ -28,6 +28,8 @@ export const Project = styled.div`
       z-index: 55;
       top: 50%;
       transform: translate(0, -50%);
+      display: grid;
+      align-content: space-between;
       @media(max-width: 768px){
         padding: 2.5px;
       }
@@ -39,6 +41,7 @@ export const Project = styled.div`
     cursor: pointer;
     height: 100% !important;
     width: auto;
+
   }
   svg{
     // height: 100%;
@@ -87,13 +90,34 @@ export const Project = styled.div`
       top: 0;
       overflow: hidden;
       height: 100%;
-      width: 500px !important;
+      width: 500px;
       background: #177180;
       // padding: 20px;
-      font-size: 15px;
+
+      display: flex; flex-direction: column;
+      text-align: left;
 
       .sidebar-content{
-        border: 5px solid red;
+        position: absolute;
+        z-index: 56;
+        top: 50%;
+        transform: translate(0, -50%);
+
+        .technologies, .features, .presentation{
+          display: flex; flex-direction: row;
+          img{
+            width: auto; height: 100px;
+          }
+          &>div{
+            display: flex; flex-direction: column;
+          }
+        }
+
+        button{
+          background: transparent;
+          border: 1px solid white;
+          color: white;
+        }
       }
     }
 

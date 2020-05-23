@@ -10,19 +10,47 @@ export const Project = styled.div`
   height: 100vh;
   background: lightblue;
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .project-main-content{
+    position: relative;
+    // top: 50%;
+    // transform: translate(0, -50%);
+    display: flex; flex-direction: column;
+    text-align: right;
+
+    .main-content-positioning{
+      padding: 15px;
+      position: absolute;
+      z-index: 55;
+      top: 50%;
+      transform: translate(0, -50%);
+      @media(max-width: 768px){
+        padding: 2.5px;
+      }
+    }
+  }
+
 
   svg, path, g{
+    cursor: pointer;
     height: 100% !important;
     width: auto;
   }
   svg{
     // height: 100%;
-    // width: auto;
+    width: 100%;
     [data-name="Path-1"]{
+      fill: ${props => props.svgColors[0]};
       animation: animated2 3s alternate infinite;
     }
     [data-name="Path-2"]{
+      fill: ${props => props.svgColors[1]};
       animation: animated1 4s alternate infinite;
+    }
+    [data-name="Path-3"]{
+      fill: ${props => props.svgColors[2]};
     }
   }
   @keyframes animated1{
@@ -43,6 +71,8 @@ export const Project = styled.div`
   }
 
   .project-justify{
+    overflow: hidden;
+    position: absolute;
     background: 'lightblue';
     width: 100%; height: 100%;
     display: flex;
@@ -50,23 +80,23 @@ export const Project = styled.div`
     justify-content: flex-end;
 
     .sidebar{
+      cursor: pointer;
       position: relative;
       right: 0;
       top: 0;
       overflow: hidden;
       height: 100%;
-      width: 280px;
-      background: white;
+      width: 500px !important;
+      background: #177180;
       // padding: 20px;
       font-size: 15px;
+
+      .sidebar-content{
+        border: 5px solid red;
+      }
     }
-  
+
   }
-
-
-
-  
-
 
 
 `;

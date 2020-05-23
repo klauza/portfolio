@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
+
 import { Keyframes, animated } from 'react-spring/renderprops';
 import delay from 'delay';
 import { Project } from './ProjectsCSS';
@@ -8,11 +10,20 @@ const Sidebar = Keyframes.Spring({
   // Slots can take arrays/chains,
   // peek: [{ x: 0, from: { x: -100 }, delay: 500 }, { x: -100, delay: 800 }],
   // single items,
-  open: { delay: 0, x: 0 },
+  open: { delay: 0, x: -5 },
   // or async functions with side-effects
   close: async call => {
     await delay(400)
     await call({ delay: 0, x: 100 })
+  },
+})
+
+const Waves = Keyframes.Spring({
+  open: { delay: 0, x: isMobile ? -20 : 30 },
+  // or async functions with side-effects
+  close: async call => {
+    await delay(400)
+    await call({ delay: 0, x: isMobile ? 80 : 100 })
   },
 })
 
@@ -39,7 +50,7 @@ const Single = ({project}) => {
     <div>Div_2</div>,
     <React.Fragment>
       <input type="checkbox" />Check
-      <button>button</button>
+      <a href="https://www.google.com" target="_blank"><button>Btn</button></a>
     </React.Fragment>,
   ]
 
@@ -69,52 +80,67 @@ const Single = ({project}) => {
   const icon = open ? 'fold' : 'unfold';
 
   return (
-    <Project >
+    <Project svgColors={[project.wave_color_1, project.wave_color_2, project.wave_color_3]} >
 
-      <div className="project-justify" onClick={toggle}>
+      <div className="project-main-content">
+        <div className="main-content-positioning">
+          <h1>{project.name}</h1>
+          <h4>{project.desc_short}</h4>
+          <p>{project.desc_long}</p>
+          <button><a href={project.link}>LIVE PAGE</a></button>
+        </div>
+      </div>
+
+      <div className="project-justify">
 
         {/* waves */}
-        <Sidebar native state={state} >
+        
+        <Waves native state={state}>
           {({ x }) => (
 
             <animated.div
+            onClick={toggle}
             style={{
-              transform: x.interpolate(x => `translate3d(${x+15}%,0,0)`)
+              transform: x.interpolate(x => `translate3d(${x+30}%,0,0)`)
             }}>
 
               {project.background}
 
           </animated.div>
           )}
-        </Sidebar>
+        </Waves>
    
             {/* hidden content */}
-        <Sidebar native state={state} >
+        <Sidebar native state={state}>
           {({ x }) => (
             <animated.div
+              onClick={toggle}
               className="sidebar"
               style={{
-                transform: x.interpolate(x => `translate3d(${x}%,0,0)`),
+                transform: x.interpolate(x => `translate3d(${x+15}%,0,0)`),
               }}>
-                
-              <Content
-                native
-                items={items}
-                keys={items.map((_, i) => i)}
-                reverse={!open}
-                state={state}>
-                {(item, i) => ({ x, ...props }) => (
-                  <animated.div
-                    style={{
-                      transform: x.interpolate(x => `translate3d(${x}%,0,0)`),
-                      ...props,
-                    }}>
-                   
-                      {item}
-                   
-                  </animated.div>
-                )}
-              </Content>
+
+              <div className="sidebar-content">
+                <Content
+                  native
+                  items={items}
+                  keys={items.map((_, i) => i)}
+                  reverse={!open}
+                  state={state}>
+                  {(item, i) => ({ x, ...props }) => (
+                    <animated.div
+                      style={{
+                        transform: x.interpolate(x => `translate3d(${x}%,0,0)`),
+                        ...props,
+                      }}>
+                    
+                        {item}
+                    
+                    </animated.div>
+                  )}
+                </Content>
+              </div>
+              
             </animated.div>
           )}
         </Sidebar>

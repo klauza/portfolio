@@ -83,6 +83,19 @@ export const Project = styled.div`
     flex-direction: row;
     justify-content: flex-end;
 
+    .svg-waves-container{
+      position: relative;
+      .show-more-less{
+        position: absolute;
+        top: 10%; left: 30%;
+        transform: translate(0, 0);
+        // @media(max-width: 768px){
+        //   top: 10%; left: 50%;
+        //   transform: translate(-50%, -50%);
+        // }
+      }
+    }
+
     .sidebar{
       cursor: pointer;
       position: relative;

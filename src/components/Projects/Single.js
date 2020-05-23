@@ -46,7 +46,6 @@ const Single = ({project}) => {
 
   // ITEMS for content
   const items = [
-    <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />,
     <div className="technologies">
       <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />
       <div>
@@ -80,7 +79,7 @@ const Single = ({project}) => {
    
   ]
 
-  const [open, setOpen] = useState(undefined);
+  const [open, setOpen] = useState(false);
 
 
 
@@ -100,14 +99,13 @@ const Single = ({project}) => {
 
   // }, [])
 
-  const state = open === undefined
+  const state = open === false
   ? 'close'
   : open
   ? 'open'
   : 'close';
   
-
-  const icon = open ? 'fold' : 'unfold';
+  // const icon = open ? 'fold' : 'unfold';
 
   return (
     <Project fontPrimaryColor={project.font_primary_color} primaryColor={project.primary_color} svgColors={[project.wave_color_1, project.wave_color_2, project.wave_color_3]} >
@@ -130,10 +128,11 @@ const Single = ({project}) => {
 
             <animated.div
             onClick={toggle}
+            className="svg-waves-container"
             style={{
               transform: x.interpolate(x => `translate3d(${x+30}%,0,0)`)
             }}>
-
+              <div className="show-more-less">{open === false ? "more" : "less"}</div>
               {project.background}
 
           </animated.div>

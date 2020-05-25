@@ -30,8 +30,40 @@ export const Project = styled.div`
       transform: translate(0, -50%);
       display: grid;
       align-content: space-between;
+      width: 100%;
+      h1{
+        font-size: 3em;
+      }
+      &>h4{
+        padding-bottom: 50px;  
+      }
+      &>p{
+        text-align: right;
+        padding-top: 50px;
+        padding-left: 100px;
+      }
+      a{
+        padding-top: 10px;
+      }
+      button{
+        padding: 7.5px 15px;
+        border-radius: 5px;
+        border: 1px solid white;
+        box-shadow: 0 0 2px 1px rgba(0,0,0,.75);
+  
+        // background: #000;
+        // color: #fff;
+      }
+
       @media(max-width: 768px){
         padding: 2.5px;
+
+        h1{
+          font-size: 2em;
+        }
+        p{
+          padding-left: 5px;
+        }
       }
     }
   }
@@ -145,19 +177,34 @@ export const Project = styled.div`
               margin: 0;
             }
             ul > li{
+              color: lightgrey;
               list-style-position: inside;
               // list-style-type: square;
             }
           }
+          
+          @media(max-width: 450px){
+            h2{
+              font-size: 5vw;
+            }
+            &>div{
+              ul > li{
+                font-size: 3.75vw;
+              }
+            }
+          }
         }
-        .presentation-top{
-      
+        .presn-btn-top{
+          margin-bottom: 5px;
         }
+        
 
         button{
           background: transparent;
           border: 1px solid white;
           color: white;
+          padding: 5px 10px;
+          border-radius: 5px;
         }
       }
     }

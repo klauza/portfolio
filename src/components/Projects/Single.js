@@ -58,6 +58,7 @@ const Single = ({project}) => {
         </ul>
       </div>
     </div>,
+
     <div className="features">
       <div className="features--top">
         <TechnicalSupport />
@@ -69,16 +70,22 @@ const Single = ({project}) => {
         </ul>
       </div>
     </div>,
+    
     <div className="presentation">
-      <div className="presentation--top">
+      <div>
         <Youtube />
         <h2>Presentation</h2>
       </div>
-      <div className="presentation--bot">
-        <a href="https://www.google.com" target="_blank"><button>Youtube</button></a>
-      </div>
     </div>,
-    <a href="https://www.google.com" target="_blank"><button>Github</button></a>
+
+    <div className="presn-btn-top">
+      <a href="https://www.google.com" target="_blank"><button>Youtube</button></a>
+    </div>,
+
+    <div className="presn-btn-bot">
+      <a href="https://www.google.com" target="_blank"><button>Github</button></a>
+    </div>
+    
    
   ]
 
@@ -118,7 +125,7 @@ const Single = ({project}) => {
           <div><img src={project.icon} alt="" /><h1>{project.name}</h1></div>
           <h4>{project.desc_short}</h4>
           <p>{project.desc_long}</p>
-          <a href={project.link}><button>LIVE PAGE</button></a>
+          <a href={project.link}><button style={{background:`${project.btn_bg_color}`, color:`${project.btn_text_color}`}}>Live page</button></a>
         </div>
       </div>
 

@@ -4,7 +4,7 @@ import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detec
 import { Keyframes, animated, Spring } from 'react-spring/renderprops';
 import delay from 'delay';
 import { Project } from './ProjectsCSS';
-import { Arrow } from '../../Icons';
+import { Arrow, TechnicalSupport, Coding, Youtube } from '../../Icons';
 
 // Creates a spring with predefined animation slots
 const Sidebar = Keyframes.Spring({
@@ -49,33 +49,29 @@ const Single = ({project}) => {
   const items = [
     <div className="technologies">
       <div className="technologies--top">
-        <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />
+        <Coding />
         <h2>Technologies</h2>
       </div>
       <div className="technologies--bot">
         <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
+          {project.technologies.map((item, i) => <li key={i}>{item}</li>)}
         </ul>
       </div>
     </div>,
     <div className="features">
       <div className="features--top">
-        <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />
+        <TechnicalSupport />
         <h2>Features</h2>
       </div>
       <div className="features--bot">
         <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
+          {project.features.map((item, i) => <li key={i}>{item}</li>)}
         </ul>
       </div>
     </div>,
     <div className="presentation">
       <div className="presentation--top">
-        <img src="https://www.smallbizgenius.net/wp-content/uploads/2019/06/smallbizgenius_favicon.png" alt="" />
+        <Youtube />
         <h2>Presentation</h2>
       </div>
       <div className="presentation--bot">
@@ -119,7 +115,7 @@ const Single = ({project}) => {
 
       <div className="project-main-content">
         <div className="main-content-positioning">
-          <h1>{project.name}</h1>
+          <div><img src={project.icon} alt="" /><h1>{project.name}</h1></div>
           <h4>{project.desc_short}</h4>
           <p>{project.desc_long}</p>
           <a href={project.link}><button>LIVE PAGE</button></a>

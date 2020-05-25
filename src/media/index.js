@@ -1,0 +1,1 @@
+export { default as NobleLeadersIcon } from './imgs/noble-l.jpg';

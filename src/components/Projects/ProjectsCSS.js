@@ -107,6 +107,7 @@ export const Project = styled.div`
 
 
     .sidebar{
+      padding: 5px;
       cursor: pointer;
       position: relative;
       right: 0;
@@ -115,7 +116,6 @@ export const Project = styled.div`
       height: 100%;
       width: 500px;
       background: #177180;
-      // padding: 20px;
 
       display: flex; flex-direction: column;
       text-align: left;
@@ -127,9 +127,17 @@ export const Project = styled.div`
         transform: translate(0, -50%);
 
         .technologies, .features, .presentation{
+          padding: 10px 0;
           display: flex; flex-direction: column;
+          h2{
+            padding-left: 10px;
+          }
           img{
             width: auto; height: 35px;
+          }
+          svg{
+            fill: #fff;
+            width: 35px; height: auto;
           }
           &>div{
             display: flex; flex-direction: row;
@@ -137,9 +145,13 @@ export const Project = styled.div`
               margin: 0;
             }
             ul > li{
-              list-style: none;
+              list-style-position: inside;
+              // list-style-type: square;
             }
           }
+        }
+        .presentation-top{
+      
         }
 
         button{

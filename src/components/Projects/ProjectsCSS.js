@@ -206,7 +206,7 @@ export const Project = styled.div`
       overflow: hidden;
       height: 100%;
       width: 500px;
-      background: #177180;
+      background: ${props => props.sidebar_bg_color};
 
       display: flex; flex-direction: column;
       text-align: left;
@@ -216,6 +216,35 @@ export const Project = styled.div`
         z-index: 56;
         top: 50%;
         transform: translate(0, -50%);
+
+        // youtube btn
+        .presn-btn-top{
+          &>a>button{
+            border: 0;
+            background: red;
+            color: white;
+            margin-bottom: 5px;
+            box-shadow: 0 0 4px 0 rgba(0,0,0,.65);
+          }
+        }
+        // github btn
+        .presn-btn-bot{
+          &>a>button{
+            border: 0;
+            background: black;
+            color: white;
+            // margin-bottom: 5px;
+            box-shadow: 0 0 4px 0 rgba(0,0,0,.65);
+            outline: none;
+          }
+        }
+        
+
+        button{
+          background: transparent;
+          padding: 5px 10px;
+          border-radius: 5px;
+        }
 
         .technologies, .features, .presentation{
           padding: 10px 0;
@@ -227,7 +256,7 @@ export const Project = styled.div`
             width: auto; height: 35px;
           }
           svg{
-            fill: #fff;
+            fill: ${props => props.fontPrimaryColor};
             width: 35px; height: auto;
           }
           &>div{
@@ -236,7 +265,7 @@ export const Project = styled.div`
               margin: 0;
             }
             ul > li{
-              color: lightgrey;
+              color: ${props => props.font_sidebar_secondary_color};
               list-style-position: inside;
               // list-style-type: square;
             }
@@ -253,18 +282,8 @@ export const Project = styled.div`
             }
           }
         }
-        .presn-btn-top{
-          margin-bottom: 5px;
-        }
-        
 
-        button{
-          background: transparent;
-          border: 1px solid white;
-          color: white;
-          padding: 5px 10px;
-          border-radius: 5px;
-        }
+
       }
     }
 

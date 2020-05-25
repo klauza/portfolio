@@ -79,7 +79,7 @@ const Single = ({project}) => {
     </div>,
 
     <div className="presn-btn-top">
-      <a href={project.link_youtube} target="_blank" rel="noopener noreferrer"><button>Youtube</button></a>
+      <a href={project.link_youtube} target="_blank" rel="noopener noreferrer"><button>YouTube</button></a>
     </div>,
 
     <div className="presn-btn-bot">
@@ -118,7 +118,13 @@ const Single = ({project}) => {
   // const icon = open ? 'fold' : 'unfold';
 
   return (
-    <Project fontPrimaryColor={project.font_primary_color} primaryColor={project.primary_color} svgColors={[project.wave_color_1, project.wave_color_2, project.wave_color_3]} >
+    <Project 
+      fontPrimaryColor={project.font_primary_color} 
+      primaryColor={project.primary_color} 
+      svgColors={[project.wave_color_1, project.wave_color_2, project.wave_color_3]} 
+      sidebar_bg_color={project.wave_color_3}
+      font_sidebar_secondary_color={project.font_sidebar_secondary_color}
+      >
       
       <div className="project-number">project {project.id} / 6</div>
 
@@ -132,7 +138,7 @@ const Single = ({project}) => {
             <p>Live page link</p>
             <a href={project.link_live} target="_blank" rel="noopener noreferrer">
               <span>https://</span>
-              <span>noble-leaders.klauza-dev.com</span>
+              <span>{project.link_text_live}</span>
             </a>
           </div>
 

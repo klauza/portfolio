@@ -1,9 +1,9 @@
 import React from 'react';
 import Single from './Single';
-import SingleMobile from './SingleMobile';
+// import SingleMobile from './SingleMobile';
 import { Container } from './ProjectsCSS';
 import { projectList } from './database';
-import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
+// import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
 
 const Projects = () => {
   return (

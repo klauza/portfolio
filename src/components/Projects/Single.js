@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
+import React, { useState } from 'react';
+import { isMobile } from "react-device-detect";
 
 import { Keyframes, animated, Spring } from 'react-spring/renderprops';
 import delay from 'delay';
@@ -79,11 +79,11 @@ const Single = ({project}) => {
     </div>,
 
     <div className="presn-btn-top">
-      <a href="https://www.google.com" target="_blank"><button>Youtube</button></a>
+      <a href={project.link_youtube} target="_blank" rel="noopener noreferrer"><button>Youtube</button></a>
     </div>,
 
     <div className="presn-btn-bot">
-      <a href="https://www.google.com" target="_blank"><button>Github</button></a>
+      <a href={project.link_github} target="_blank" rel="noopener noreferrer"><button>Github</button></a>
     </div>
     
    
@@ -119,13 +119,23 @@ const Single = ({project}) => {
 
   return (
     <Project fontPrimaryColor={project.font_primary_color} primaryColor={project.primary_color} svgColors={[project.wave_color_1, project.wave_color_2, project.wave_color_3]} >
+      
+      <div className="project-number">project {project.id} / 6</div>
 
       <div className="project-main-content">
         <div className="main-content-positioning">
           <div><img src={project.icon} alt="" /><h1>{project.name}</h1></div>
           <h4>{project.desc_short}</h4>
           <p>{project.desc_long}</p>
-          <a href={project.link}><button style={{background:`${project.btn_bg_color}`, color:`${project.btn_text_color}`}}>Live page</button></a>
+    
+          <div className="live-link-container">
+            <p>Live page link</p>
+            <a href={project.link_live} target="_blank" rel="noopener noreferrer">
+              <span>https://</span>
+              <span>noble-leaders.klauza-dev.com</span>
+            </a>
+          </div>
+
         </div>
       </div>
 

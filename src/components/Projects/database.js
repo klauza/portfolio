@@ -4,12 +4,15 @@ import { NobleLeadersIcon } from '../../media';
 
 export const projectList = [
   {
-    id: 0,
+    id: 1,
     name: "Noble-leaders",
     icon: NobleLeadersIcon,
-    desc_short: "simple but awesome",
-    desc_long: "Noble-leaders is a fullstack game centre app. It is a minimalistic, mobile friendly project with subtle design and features. There is few things to expore. Made for entertaining purposes. With ranking system the app allows a player to compete with other people.",
-    link: "https://www.google.com",
+    desc_short: "competitive gamehub",
+    desc_long: "Noble-leaders is a fullstack game centre app. It is a minimalistic, mobile friendly project with subtle design and features. Made for entertaining purposes. With ranking system the app allows a player to compete with other people. There is few fun things to expore.",
+    link_text_live: "noble-leaders.klauza-dev.com",
+    link_live: "https://www.google.com",
+    link_github: "https://www.google.com",
+    link_youtube: "https://www.google.com",
     font_primary_color: "#fff",
     primary_color: "#3AC0D5",
     wave_color_1: "#29AABF",

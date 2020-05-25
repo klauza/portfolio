@@ -14,6 +14,19 @@ export const Project = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
 
+  position: relative;
+  .project-number{
+    margin-left: 10px;
+    margin-top: 5px;
+    position: absolute;
+    top: 0; left: 0;
+    color: #000;
+    @media(max-width: 768px){
+      margin-left: 5px;
+      margin-top: 2.5px;
+    }
+  }
+
   .project-main-content{
     
     position: relative;
@@ -35,25 +48,67 @@ export const Project = styled.div`
         font-size: 3em;
       }
       &>h4{
-        padding-bottom: 50px;  
+        padding-bottom: 20px;  
       }
       &>p{
         text-align: right;
-        padding-top: 50px;
+        padding-top: 20px;
         padding-left: 100px;
       }
-      a{
-        padding-top: 10px;
+
+      .live-link-container{
+        p{
+          color: #000;
+          margin-bottom: 5px;
+        }
+        margin-top: 40px;
+        // display: block;
+        // width: 100%;
+        float: right; 
+
+        a{
+          text-decoration: none;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+        span{
+          box-shadow: 0 0 3px 0 #000;
+          padding: 5px 10px;
+          // border: 1px solid black;
+        }
+        span:nth-child(1){
+          border-top-left-radius: 8px;
+          border-bottom-left-radius: 8px;
+          color: grey;
+          background: #d4d4d4;
+        }
+        span:nth-child(2){
+          border-top-right-radius: 8px;
+          border-bottom-right-radius: 8px;
+          margin-left: 3.5px;
+          color: #000;
+          background: #fff;
+        }
+
+        @media(max-width: 649px){
+          margin-top: 20px;
+          span:nth-child(1){
+            display: none;
+          }
+          span:nth-child(2){
+            font-size: 3vw;
+            border-radius: 5px;
+
+            @media(max-width: 355px){
+              font-size: 2.5vw;
+            }
+          }
+
+      
+        }
       }
-      button{
-        padding: 7.5px 15px;
-        border-radius: 5px;
-        border: 1px solid white;
-        box-shadow: 0 0 2px 1px rgba(0,0,0,.75);
-  
-        // background: #000;
-        // color: #fff;
-      }
+
 
       @media(max-width: 768px){
         padding: 2.5px;
@@ -131,6 +186,10 @@ export const Project = styled.div`
         svg{
           fill: white;
           // width: 25px; height: auto;
+        }
+
+        @media(max-width: 768px){
+          top: 5%;
         }
       }
 

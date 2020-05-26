@@ -115,8 +115,6 @@ const Single = ({project}) => {
   ? 'open'
   : 'close';
   
-  // const icon = open ? 'fold' : 'unfold';
-
   return (
     <Project 
       fontPrimaryColor={project.font_primary_color} 
@@ -124,7 +122,13 @@ const Single = ({project}) => {
       svgColors={[project.wave_color_1, project.wave_color_2, project.wave_color_3]} 
       sidebar_bg_color={project.wave_color_3}
       font_sidebar_secondary_color={project.font_sidebar_secondary_color}
+      bgImageCSSscreen={project.bg_css_screen}
+      bgImageCSSmobile={project.bg_css_mobile}
       >
+      
+      <div className="background-image">
+        {project.bg_image}
+      </div>
       
       <div className="project-top-info">
         <div>project {project.id} / {projectQty}</div>

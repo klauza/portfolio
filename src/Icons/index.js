@@ -1,3 +1,8 @@
+export { default as HeroprojectBG } from './Heroproject'
+export { default as SkeletonBG } from './Skeleton'
+export { default as CarServicesBG } from './CarServices'
+export { default as NobleLeadersBG } from './NobleLeaders'
+export { default as BhutanotelBG } from './Bhutanotel'
 export { default as Skateboard } from './Skater'
 export { default as Bg1 } from './Bg1'
 export { default as Bg2 } from './Bg2'

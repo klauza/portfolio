@@ -1,5 +1,6 @@
 import React from 'react';
 import { Bg1, Bg2, Bg3, Bg4 } from '../../Icons';
+import { BhutanotelBG, NobleLeadersBG, CarServicesBG, SkeletonBG, HeroprojectBG } from '../../Icons';
 import { NobleLeadersIcon, CarServicesIcon, ProtoFolioIcon, BhutanotelIcon, HeroprojectIcon, PhotographyIcon, pwdMakerIcon } from '../../media';
 
 export const projectList = [
@@ -23,6 +24,9 @@ export const projectList = [
     btn_text_color: "#fff",
     particles_sidebar: 'X',
     background: < Bg1 />,
+    bg_image: <NobleLeadersBG />,
+    bg_css_screen: "opacity: 0.15; top: 55%; left: 25%; transform: translate(0, -50%);",
+    bg_css_mobile: "left: 5%; width: 170%;",
     technologies: ["React, Redux", "node.js/express.js", "mongoDB", "CSS/Sass"],
     features: ["custom authentication", "player rank system", "user dashboard", "games", "simple built-in forum"]
   },
@@ -46,6 +50,9 @@ export const projectList = [
     btn_text_color: "#fff",
     particles_sidebar: 'X',
     background: < Bg2 />,
+    bg_image: <CarServicesBG />,
+    bg_css_screen: "top: 60%; left: 5%; transform: translate(0, -50%);",
+    bg_css_mobile: "left: 5%; width: 200%;",
     technologies: ["React, Redux", "CSS/styled-components", "Progressive Web App", "Service Worker"],
     features: ["Google Maps", "animations", "mobile friendly"]
   },
@@ -53,7 +60,7 @@ export const projectList = [
     id: 3,
     name: "PROTO-FOLIO",
     icon: ProtoFolioIcon,
-    desc_short: "Innovative web-app skeleton",
+    desc_short: "Animated web-app skeleton",
     desc_long: "Drag and pull the routes with any pointer. Flexible route caching makes the project very fluid. Feel the animations across the project and let yourself to get a new inspiration.",
     link_text_live: "proto-folio.klauza-dev.com",
     link_live: "https://www.google.com",
@@ -69,6 +76,9 @@ export const projectList = [
     btn_text_color: "#fff",
     particles_sidebar: 'X',
     background: < Bg3 />,
+    bg_image: <SkeletonBG />,
+    bg_css_screen: "width: 65%; opacity: 0.45; top: 50%; left: 35%; transform: translate(0, -50%);",
+    bg_css_mobile: "left: 5%; top: 45%; width: 110%;",
     technologies: ["React, Redux", "CSS/styled-components"],
     features: ["complex animations", "mobile friendly"]
   },
@@ -92,6 +102,9 @@ export const projectList = [
     btn_text_color: "#fff",
     particles_sidebar: 'X',
     background: < Bg2 />,
+    bg_image: <BhutanotelBG />,
+    bg_css_screen: "opacity: 0.15; top: 50%; left: 25%; transform: translate(0, -50%);",
+    bg_css_mobile: "left: 5%; width: 170%;",
     technologies: ["React, Redux", "CSS/styled-components"],
     features: ["leaflet maps", "booking scheme", "animations", "mobile friendly"]
   },
@@ -101,7 +114,7 @@ export const projectList = [
     icon: HeroprojectIcon,
     desc_short: "character creation app",
     desc_long: "Create a character from available data sources. Make project publicly viewable by other users.",
-    link_text_live: "hero-project-klauza.firebaseapp.com",
+    link_text_live: "hero-project-klauza.fbapp.com",
     link_live: "https://www.google.com",
     link_github: "https://www.google.com",
     link_youtube: "https://www.google.com",
@@ -115,6 +128,9 @@ export const projectList = [
     btn_text_color: "#fff",
     particles_sidebar: 'X',
     background: < Bg1 />,
+    bg_image: <HeroprojectBG />,
+    bg_css_screen: "opacity: 0.2; width: 30%; top: 50%; left: 65%; transform: translate(-50%, -50%);",
+    bg_css_mobile: "left: 25%; width: 90%; transform: translate(0, -50%)",
     technologies: ["React", "CSS", "Firebase"],
     features: ["auth system", "creation panel", "downloadable content", "mobile friendly"]
   }

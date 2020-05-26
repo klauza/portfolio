@@ -107,7 +107,7 @@ export const Container = styled.div`
       &--right{
         order: 1;
         div{
-          max-width: 250px;
+          max-width: 325px;
           margin: 0 auto;
         }
         svg{

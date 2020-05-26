@@ -13,8 +13,19 @@ export const Project = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  overflow: hidden;
 
   position: relative;
+
+  .background-image{
+    width: 80%; height: auto;
+    opacity: 0.1;
+    position: absolute;
+    ${props => props.bgImageCSSscreen};
+    @media(max-width: 900px){
+      ${props => props.bgImageCSSmobile};
+    }
+  }
 
   .project-top-info{
     position: absolute;
@@ -60,7 +71,7 @@ export const Project = styled.div`
         text-align: right;
         padding-top: 20px;
         padding-left: 100px;
-        text-shadow: 1px 1px 2px #000;
+        text-shadow: 1px 1px 2px rgba(0,0,0,.6);
       }
 
       .live-link-container{

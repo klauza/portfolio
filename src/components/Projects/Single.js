@@ -5,6 +5,7 @@ import { Keyframes, animated, Spring } from 'react-spring/renderprops';
 import delay from 'delay';
 import { Project } from './ProjectsCSS';
 import { Arrow, TechnicalSupport, Coding, Youtube } from '../../Icons';
+import { projectQty } from './database';
 
 // Creates a spring with predefined animation slots
 const Sidebar = Keyframes.Spring({
@@ -43,7 +44,6 @@ const Content = Keyframes.Trail({
 
 
 const Single = ({project}) => {
-
 
   // ITEMS for content
   const items = [
@@ -126,7 +126,9 @@ const Single = ({project}) => {
       font_sidebar_secondary_color={project.font_sidebar_secondary_color}
       >
       
-      <div className="project-number">project {project.id} / 6</div>
+      <div className="project-top-info">
+        <div>project {project.id} / {projectQty}</div>
+      </div>
 
       <div className="project-main-content">
         <div className="main-content-positioning">

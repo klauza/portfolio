@@ -4,6 +4,7 @@ export const Container = styled.div`
   height: 100vh;
   width: 100%;
   background: #d4d4d4;
+
   @media(max-width: 900px){
     height: 100%;
     h2{
@@ -27,13 +28,18 @@ export const Container = styled.div`
     align-content: center;
 
     &--left{
-      // border: 1px solid red;
       display: grid; grid-template-rows: 1fr 1fr;
       height: 100%;
+      h2{
+        color: #000;
+        text-shadow: 2px 2px 1px rgba(0,0,0,.5);
+      }
+      p{
+        padding: 5px 0;
+      }
 
       .about-me{
         padding: 10px;
-
       }
       .about-portfolio{
         padding: 10px;
@@ -41,16 +47,46 @@ export const Container = styled.div`
       }
     }
 
+    @keyframes animatedskater{
+      0%{
+        transform: rotateX(0);
+      }
+      100%{
+        transform: rotateX(20deg);
+      }
+    }
+    @keyframes animatedboard{
+      0%{
+        transform: rotateX(0) rotateZ(0);
+      }
+      100%{
+        transform: rotateX(10deg) rotateZ(5deg);
+      }
+    }
+
     &--right{
-      // border: 1px solid green;
       div{
         height: 100%; width: auto;
       }
       svg{
         padding: 15px;
         width: 100%; height: 100%;
+
+        .skater-dude{
+          transform-origin: center top;
+          animation: animatedskater 2s alternate infinite;
+        }
+        .skater-board{
+          transform-origin: center center;
+          animation: animatedboard 2s alternate infinite;
+        }
+
       }
+
     }
+
+
+
 
     @media(max-width: 900px){
       display: flex; flex-direction: column;

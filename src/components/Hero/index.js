@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './HeroCSS';
 import { herodb } from './db';
-import { Arrow } from '../../Icons';
+import { Arrow, Skateboard } from '../../Icons';
 
 const Hero = () => {
   return (
@@ -12,18 +12,18 @@ const Hero = () => {
 
         <div className="content--left">
           <div className="about-me">
-            <h2>About me</h2>
+            <h2><span style={{fontSize: "2.25em"}}>A</span>bout me</h2>
             {herodb.about_me_text.map((item, i) => <p key={i}>{item}</p>)} 
           </div>
           <div className="about-portfolio">
-            <h2>About portfolio</h2>
+            <h2><span style={{fontSize: "2.25em"}}>A</span>bout portfolio</h2>
             {herodb.about_portfolio_text.map((item, i) => <p key={i}>{item}</p>)} 
           </div>
         </div>
 
         <div className="content--right">
           <div>
-            <Arrow />
+            <Skateboard />
           </div>
         </div>
 

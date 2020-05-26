@@ -14,8 +14,8 @@ const Footer = () => {
         <div className="footer-logo">L</div>
 
         <div className="footer-social">
-          <a href="https://www.google.com"><GithubImage /> <span>github</span></a>
-          <a href="https://www.google.com"><Linkedin /> <span>linkedin</span></a>
+          <a href="https://www.google.com" target="_blank" rel="noopener noreferrer"><GithubImage /> <span>github</span></a>
+          <a href="https://www.google.com" target="_blank" rel="noopener noreferrer"><Linkedin /> <span>linkedin</span></a>
         </div>
       </div>
     </Content>

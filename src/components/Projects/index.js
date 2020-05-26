@@ -5,6 +5,7 @@ import { Container } from './ProjectsCSS';
 import { projectList } from './database';
 // import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
 
+
 const Projects = () => {
   return (
     <Container>
@@ -12,7 +13,7 @@ const Projects = () => {
       {/* map projects */}
 
       {/* <BrowserView> */}
-        {projectList.map((project, i) => <Single key={i} project={project} /> )}
+        {projectList.map((project, i) => <React.Fragment key={i}> <Single project={project} /> <div style={{background: "#000", width: "100%", height: "100px"}} /></ React.Fragment> )}
       {/* </BrowserView> */}
 
       {/* <MobileView> */}

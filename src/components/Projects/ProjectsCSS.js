@@ -15,15 +15,21 @@ export const Project = styled.div`
   grid-template-columns: 1fr 1fr;
 
   position: relative;
-  .project-number{
-    margin-left: 10px;
-    margin-top: 5px;
+
+  .project-top-info{
     position: absolute;
-    top: 0; left: 0;
+    top: 0; left: 2.5px;
+    line-height: 35px;
+
+    padding: 0 10px;
+    // border-bottom: 1px solid black;
+
     color: #000;
+    // background: white;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+
     @media(max-width: 768px){
-      margin-left: 5px;
-      margin-top: 2.5px;
     }
   }
 
@@ -54,6 +60,7 @@ export const Project = styled.div`
         text-align: right;
         padding-top: 20px;
         padding-left: 100px;
+        text-shadow: 1px 1px 2px #000;
       }
 
       .live-link-container{

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bg1 } from '../../Icons';
+import { Bg1, Bg2, Bg3, Bg4 } from '../../Icons';
 import { NobleLeadersIcon, CarServicesIcon, ProtoFolioIcon, BhutanotelIcon, HeroprojectIcon, PhotographyIcon, pwdMakerIcon } from '../../media';
 
 export const projectList = [
@@ -45,7 +45,7 @@ export const projectList = [
     btn_bg_color: "#000",
     btn_text_color: "#fff",
     particles_sidebar: 'X',
-    background: < Bg1 />,
+    background: < Bg2 />,
     technologies: ["React, Redux", "CSS/styled-components", "Progressive Web App", "Service Worker"],
     features: ["Google Maps", "animations", "mobile friendly"]
   },
@@ -53,7 +53,7 @@ export const projectList = [
     id: 3,
     name: "PROTO-FOLIO",
     icon: ProtoFolioIcon,
-    desc_short: "Innovative skeleton",
+    desc_short: "Innovative web-app skeleton",
     desc_long: "Drag and pull the routes with any pointer. Flexible route caching makes the project very fluid. Feel the animations across the project and let yourself to get a new inspiration.",
     link_text_live: "proto-folio.klauza-dev.com",
     link_live: "https://www.google.com",
@@ -68,7 +68,7 @@ export const projectList = [
     btn_bg_color: "#000",
     btn_text_color: "#fff",
     particles_sidebar: 'X',
-    background: < Bg1 />,
+    background: < Bg3 />,
     technologies: ["React, Redux", "CSS/styled-components"],
     features: ["complex animations", "mobile friendly"]
   },
@@ -91,7 +91,7 @@ export const projectList = [
     btn_bg_color: "#000",
     btn_text_color: "#fff",
     particles_sidebar: 'X',
-    background: < Bg1 />,
+    background: < Bg2 />,
     technologies: ["React, Redux", "CSS/styled-components"],
     features: ["leaflet maps", "booking scheme", "animations", "mobile friendly"]
   },
@@ -119,3 +119,5 @@ export const projectList = [
     features: ["auth system", "creation panel", "downloadable content", "mobile friendly"]
   }
 ]
+
+export const projectQty = projectList.length;

@@ -2,10 +2,11 @@ import React from 'react';
 import { Container } from './HeroCSS';
 import { herodb } from './db';
 import { Arrow, Skateboard } from '../../Icons';
+import { HeroBackground } from '../../media';
 
 const Hero = () => {
   return (
-    <Container>
+    <Container backgroundImage={HeroBackground}>
       <h1> {herodb.top_text} </h1>
 
       <div className="content content-wrapper">

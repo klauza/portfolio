@@ -1,3 +1,4 @@
+export { default as Secured } from './Secured'
 export { default as HeroprojectBG } from './Heroproject'
 export { default as SkeletonBG } from './Skeleton'
 export { default as CarServicesBG } from './CarServices'

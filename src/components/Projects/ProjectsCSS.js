@@ -75,16 +75,25 @@ export const Project = styled.div`
       }
 
       .live-link-container{
-        p{
-          color: #000;
-          margin-bottom: 5px;
-        }
+
         margin-top: 40px;
         // display: block;
         // width: 100%;
         float: right; 
+        // display: grid;
+        // align-items: center;
+        span:nth-child(1){
+          position: relative;
+          svg{
+            position: absolute;
+            top: 0; left: -15px;
+            // margin-right: 5px;
+            width: 25px; height: auto;
+          }
+        }
 
         a{
+
           text-decoration: none;
           &:hover{
             text-decoration: underline;

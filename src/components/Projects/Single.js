@@ -4,7 +4,7 @@ import { isMobile } from "react-device-detect";
 import { Keyframes, animated, Spring } from 'react-spring/renderprops';
 import delay from 'delay';
 import { Project } from './ProjectsCSS';
-import { Arrow, TechnicalSupport, Coding, Youtube } from '../../Icons';
+import { Secured, Arrow, TechnicalSupport, Coding, Youtube } from '../../Icons';
 import { projectQty } from './database';
 
 // Creates a spring with predefined animation slots
@@ -78,9 +78,9 @@ const Single = ({project}) => {
       </div>
     </div>,
 
-    <div className="presn-btn-top">
-      <a href={project.link_youtube} target="_blank" rel="noopener noreferrer"><button>YouTube</button></a>
-    </div>,
+    // <div className="presn-btn-top">
+    //   <a href={project.link_youtube} target="_blank" rel="noopener noreferrer"><button>YouTube</button></a>
+    // </div>,
 
     <div className="presn-btn-bot">
       <a href={project.link_github} target="_blank" rel="noopener noreferrer"><button>Github</button></a>
@@ -141,9 +141,8 @@ const Single = ({project}) => {
           <p>{project.desc_long}</p>
     
           <div className="live-link-container">
-            <p>Live page link</p>
             <a href={project.link_live} target="_blank" rel="noopener noreferrer">
-              <span>https://</span>
+              <span><Secured/>https://</span>
               <span>{project.link_text_live}</span>
             </a>
           </div>

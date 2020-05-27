@@ -24,9 +24,11 @@ export const Container = styled.div`
   }
 
   .content{
-    display: grid; grid-template-columns: 5fr 2fr;
+    display: grid; grid-template-columns: 5fr 3fr;
     height: 90%;
     align-content: center;
+    max-width: 1260px;
+    margin: 0 auto;
 
     &--left{
       display: grid; grid-template-rows: 1fr 1fr;

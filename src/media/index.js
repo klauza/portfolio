@@ -6,3 +6,4 @@ export { default as pwdMakerIcon } from './imgs/pwd_maker.png';
 export { default as CarServicesIcon } from './imgs/sim_vices.png';
 export { default as ProtoFolioIcon } from './imgs/proto-folio.png';
 export { default as HeroBackground } from './imgs/hero_bg.png';
+export { default as FooterBackground } from './imgs/footer_bg.png';

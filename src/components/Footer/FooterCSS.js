@@ -3,15 +3,16 @@ import styled from 'styled-components';
 export const Content = styled.div`
   width: 100%;
   height: 100%;
+  background: url(${props=>props.backgroundImage}) repeat;
 
   .footer-wrapper{
     max-width: 1280px;
     margin: 0 auto;
     padding: 50px 0;
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: space-around;
-    align-items: center;
+    // display: grid; 
+    // grid-template-columns: repeat(3, 1fr);
+    // justify-content: space-around;
+    // align-items: center;
 
     @media(max-width: 768px){
       flex-direction: column;
@@ -23,7 +24,7 @@ export const Content = styled.div`
 
   .footer{
     a{
-      color: #000;
+      color: #fff;
       text-decoration: none;
       display: flex;
       flex-direction: column;
@@ -33,15 +34,15 @@ export const Content = styled.div`
       }
     }
     svg{
+      fill: #fff;
       width: 35px; height: auto;
     }
 
-    &-logo{
-      text-align: center;
-    }
+
     
-    &-social{
+    &-icons{
       width: 100%;
+      margin: 0 auto;
       display: flex; flex-direction: row;
       justify-content: space-around;
       a{

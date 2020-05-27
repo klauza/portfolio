@@ -1,21 +1,17 @@
 import React from 'react';
 import { Content } from './FooterCSS';
 import { Email, GithubImage, Linkedin } from '../../Icons';
+import { FooterBackground } from '../../media';
 
 const Footer = () => {
   return (
-    <Content>
+    <Content backgroundImage={FooterBackground}>
       <div className="footer-wrapper footer ">
 
-        <div className="footer-email">
-          <a href="mailto:email@email.com"><Email /> <span>email@email.com</span></a>
-        </div>
-
-        <div className="footer-logo">L</div>
-
-        <div className="footer-social">
-          <a href="https://www.google.com" target="_blank" rel="noopener noreferrer"><GithubImage /> <span>github</span></a>
-          <a href="https://www.google.com" target="_blank" rel="noopener noreferrer"><Linkedin /> <span>linkedin</span></a>
+        <div className="footer-icons">
+          <a href="mailto:klauza.dev@gmail.com"><Email /> <span>klauza.dev@gmail.com</span></a>
+          <a href="https://github.com/klauza" target="_blank" rel="noopener noreferrer"><GithubImage /> <span>github</span></a>
+          <a href="https://www.linkedin.com/in/michal-klauza/" target="_blank" rel="noopener noreferrer"><Linkedin /> <span>linkedin</span></a>
         </div>
       </div>
     </Content>

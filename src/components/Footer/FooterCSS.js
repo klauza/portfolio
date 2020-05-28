@@ -43,10 +43,28 @@ export const Content = styled.div`
     &-icons{
       width: 100%;
       margin: 0 auto;
-      display: flex; flex-direction: row;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      // display: flex; flex-direction: row;
       justify-content: space-around;
       a{
         margin: 5px 0;
+      }
+    }
+
+    &-copyright{
+      padding-top: 25px;
+      text-align: center;
+      color: #fff;
+
+      &::before{
+        content: '';
+        width: 50%;
+        min-width: 250px; 
+        display: block;
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,.35), transparent); 
+        margin: 0 auto;
+        margin-bottom: 25px;
       }
     }
   }

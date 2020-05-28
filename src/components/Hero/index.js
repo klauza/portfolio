@@ -7,7 +7,10 @@ import { HeroBackground } from '../../media';
 const Hero = () => {
   return (
     <Container backgroundImage={HeroBackground}>
-      <h1> {herodb.top_text} </h1>
+      
+      <div className="header-text">
+        <h1><i>{herodb.top_text}</i></h1>
+      </div>
 
       <div className="content content-wrapper">
 

@@ -13,6 +13,10 @@ const Footer = () => {
           <a href="https://github.com/klauza" target="_blank" rel="noopener noreferrer"><GithubImage /> <span>github</span></a>
           <a href="https://www.linkedin.com/in/michal-klauza/" target="_blank" rel="noopener noreferrer"><Linkedin /> <span>linkedin</span></a>
         </div>
+
+        <div className="footer-copyright">
+          © 2018-2020 Klauza
+        </div>
       </div>
     </Content>
   )

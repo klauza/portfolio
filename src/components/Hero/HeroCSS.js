@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 100vh;
+  min-height: 100vh;
   width: 100%;
   // background: #d4d4d4;
   background: url(${props=>props.backgroundImage}) repeat;
@@ -15,9 +16,15 @@ export const Container = styled.div`
     }
   }
 
-  h1{
-    font-size: 1.5em;
-    text-align: center;
+  .header-text{
+    background: black;
+    padding: 7.5px 0;
+    h1{
+      color: #fff;
+      font-size: 1.5em;
+      text-align: center;
+    }
+
   }
   .content-wrapper{
     padding: 25px;

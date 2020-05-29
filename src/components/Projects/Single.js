@@ -126,12 +126,12 @@ const Single = ({project}) => {
       bgImageCSSmobile={project.bg_css_mobile}
       >
       
-      <div className="background-image">
+      <div className="background-image" >
         {project.bg_image}
       </div>
       
-      <div className="project-top-info">
-        <div>project {project.id} / {projectQty}</div>
+      <div className="project-top-info" style={{background: `${project.wave_color_2}`}}>
+        <div><span>{project.id} / {projectQty}</span></div>
       </div>
 
       <div className="project-main-content">

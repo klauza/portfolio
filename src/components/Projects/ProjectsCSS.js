@@ -29,16 +29,21 @@ export const Project = styled.div`
 
   .project-top-info{
     position: absolute;
-    top: 0; left: 2.5px;
+    top: 1px; left: 1px;
+    width: 75px; height: 75px;
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+    
+    // background: rgba(0,0,0,.8);
     line-height: 35px;
 
-    padding: 0 10px;
-    // border-bottom: 1px solid black;
-
-    color: #000;
-    // background: white;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
+    div{
+      position: relative;
+      span{
+        font-family: 'Lato', sans-serif;
+        position: absolute;
+        top: 2.5px; left: 5px;
+      }
+    }
 
     @media(max-width: 768px){
     }
@@ -65,28 +70,28 @@ export const Project = styled.div`
         font-size: 3em;
       }
       &>h4{
+        font-family: 'Lato', sans-serif;
         padding-bottom: 20px;  
       }
       &>p{
+        line-height: 30px;
         text-align: right;
         padding-top: 20px;
         padding-left: 100px;
         text-shadow: 1px 1px 2px rgba(0,0,0,.6);
+        font-family: 'Lato', sans-serif;
       }
 
       .live-link-container{
-
         margin-top: 40px;
-        // display: block;
-        // width: 100%;
         float: right; 
-        // display: grid;
-        // align-items: center;
         span:nth-child(1){
-          position: relative;
+        position: relative;
+
           svg{
             position: absolute;
-            top: 0; left: -15px;
+            top: 0; left: -12.5px;
+            translate: transformX(-50%);
             // margin-right: 5px;
             width: 25px; height: auto;
           }
@@ -97,11 +102,15 @@ export const Project = styled.div`
           text-decoration: none;
           &:hover{
             text-decoration: underline;
+            span{
+              box-shadow: 0 0 6px 0 rgba(0,0,0,.75);
+            }
           }
         }
         span{
+          font-family: 'Lato', sans-serif;
           box-shadow: 0 0 3px 0 #000;
-          padding: 5px 10px;
+          padding: 5px 10px 5px 15px;
           // border: 1px solid black;
         }
         span:nth-child(1){
@@ -292,9 +301,10 @@ export const Project = styled.div`
               margin: 0;
             }
             ul > li{
+              
+              font-family: 'Lato', sans-serif;
               color: ${props => props.font_sidebar_secondary_color};
               list-style-position: inside;
-              // list-style-type: square;
             }
           }
           

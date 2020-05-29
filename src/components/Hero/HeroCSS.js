@@ -23,6 +23,11 @@ export const Container = styled.div`
       color: #fff;
       font-size: 1.5em;
       text-align: center;
+      text-rendering: optimizeLegibility;
+
+      &.elegantshadow{
+
+      }
     }
 
   }
@@ -45,6 +50,8 @@ export const Container = styled.div`
         text-shadow: 2px 2px 1px rgba(0,0,0,.5);
       }
       p{
+        line-height: 30px;
+        font-family: 'Lato', sans-serif;
         padding: 5px 0;
       }
 

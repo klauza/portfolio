@@ -53,6 +53,28 @@ export const Container = styled.div`
 
       .about-me{
         padding: 10px;
+        .email{
+          display: flex;
+          align-items: center;
+          outline: none;
+          color: grey;
+          
+          svg{
+            fill: grey;
+            margin-right: 25px;
+            width: 30px; height: auto;
+            transition: all ease 0.35s;
+          }
+          transition: all ease 0.35s;
+          &:hover{
+            color: black;
+            transition: all ease 0.35s;
+            svg{
+              transition: all ease 0.35s;
+              fill: black;
+            }
+          }
+        }
       }
       .about-portfolio{
         padding: 10px;

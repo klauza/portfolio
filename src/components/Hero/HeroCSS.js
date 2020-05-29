@@ -24,10 +24,6 @@ export const Container = styled.div`
       font-size: 1.5em;
       text-align: center;
       text-rendering: optimizeLegibility;
-
-      &.elegantshadow{
-
-      }
     }
 
   }

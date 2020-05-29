@@ -33,7 +33,6 @@ export const Project = styled.div`
     width: 75px; height: 75px;
     clip-path: polygon(0 0, 0% 100%, 100% 0);
     
-    // background: rgba(0,0,0,.8);
     line-height: 35px;
 
     div{

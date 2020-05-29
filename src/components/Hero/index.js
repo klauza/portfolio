@@ -9,7 +9,7 @@ const Hero = () => {
     <Container backgroundImage={HeroBackground}>
       
       <div className="header-text">
-      <i><h1 className="elegantshadow">{herodb.top_text}</h1></i>
+      <i><h1>{herodb.top_text}</h1></i>
       </div>
 
       <div className="content content-wrapper">

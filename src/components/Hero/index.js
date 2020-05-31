@@ -25,7 +25,7 @@ const Hero = () => {
       <div className="content content-wrapper">
 
         <Spring
-          delay={1650}
+          delay={650}
           to={{ transform: startSpring ? "translateX(0px)" : "translateX(-200px)", opacity: startSpring ? 1 : 0 }}
         >
         {props =>
@@ -53,7 +53,7 @@ const Hero = () => {
 
 
         <Spring
-          delay={1900}
+          delay={750}
           to={{ opacity: startSpring ? 1 : 0 }}
         >
         {props =>

@@ -159,7 +159,7 @@ const Single = ({project}) => {
 
             <animated.div
             onClick={toggle}
-            className="svg-waves-container"
+            className="svg-waves-container noSelect"
             style={{
               transform: x.interpolate(x => `translate3d(${x+30}%,0,0)`)
             }}>
@@ -187,7 +187,7 @@ const Single = ({project}) => {
           {({ x }) => (
             <animated.div
               onClick={toggle}
-              className="sidebar"
+              className="sidebar noSelect"
               style={{
                 transform: x.interpolate(x => `translate3d(${x}%,0,0)`),
               }}>

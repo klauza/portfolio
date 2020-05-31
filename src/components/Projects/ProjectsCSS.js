@@ -7,6 +7,17 @@ export const Container = styled.div`
 `;
 
 export const Project = styled.div`
+
+  .noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   height: 100vh;
   background: ${props => props.primaryColor};
   color: ${props => props.fontPrimaryColor};

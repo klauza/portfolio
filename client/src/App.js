@@ -1,11 +1,18 @@
 import React, {createRef} from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
+import history from './history';
 
+// Home
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import MinorProjects from './components/MinorProjects';
 import Design from './components/Design';
+
+// Contact
+import Contact from './components/Contact'; 
+
 function App() {
 
   // scroll to
@@ -54,14 +61,27 @@ function App() {
   }
 
   return (
-    <div className="App" onWheel={(e)=>handleWheel(e)}>
-      {/* <Navigation hidden={hidden} handleClick={handleClick} /> */}
-      <Hero />
-      <Projects refs={refs} />
-      {/* <MinorProjects refs={refs} /> */}
-      {/* <Design refs={refs} /> */}
-      <Footer />
-    </div>
+    <Router history={history}>
+      <Switch>
+        <div className="App" onWheel={(e)=>handleWheel(e)}>
+          <Route exact path="/" component={()=><>
+            {/* <Navigation hidden={hidden} handleClick={handleClick} /> */}
+            <Hero />
+            <Projects refs={refs} />
+            {/* <MinorProjects refs={refs} /> */}
+            {/* <Design refs={refs} /> */}
+            <Footer />
+            </>
+          } />
+
+
+          <Route exact path="/contact" component={Contact} />
+        </div>
+
+
+    </Switch>
+
+    </Router>
   );
 }
 

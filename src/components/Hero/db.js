@@ -11,7 +11,7 @@ export const herodb =
     ],
     about_portfolio_text: [
       "I've chosen my 5 latest projects from period of 2019/20.",
-      "Each project differs from another - got different features, goals and purpose.", 
+      "Each project differs from another - got different features and goals.", 
       "If you are interested in finding more about a particular project - see github page of it."
     ]
   }

@@ -1,87 +1,38 @@
-import React, {createRef} from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
-import history from './history';
+import React from 'react';
+import { Route, Switch, useLocation } from 'react-router-dom';
+import { useTransition, animated } from 'react-spring'
 
 // Home
-import Hero from './components/Hero';
-import Projects from './components/Projects';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
-import MinorProjects from './components/MinorProjects';
-import Design from './components/Design';
+import Home from './views/Home'; 
 
 // Contact
-import Contact from './components/Contact'; 
+import Contact from './views/Contact'; 
+
+// Error404
+import Error404 from './views/Error404'; 
+
 
 function App() {
 
-  // scroll to
-  const anchors = [
-    {
-      id: 'a',
-      title: "Main projects"
-    },
-    {
-      id: 'b',
-      title: "Side projects"
-    },
-    {
-      id: 'c',
-      title: "Design"
-    }
-  ]
-  
-  const refs = anchors.reduce((acc, value) => {
-    acc[value.id] = createRef();
-    return acc;
-  }, {})
+  const location = useLocation()
+  console.log(location);
 
-  const handleClick = id =>
-  refs[id].current.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
-  }); 
-
-  // 'hide' function for screen device
-  const [hidden, setHidden] = React.useState(false);
-
-  const handleWheel = (e) => {
-    let direction;
-    if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
-      direction = -e.deltaY;
-    } else{
-      direction = e.nativeEvent.wheelDelta;
-    }
-
-    if(direction < 0){
-      setHidden(true);
-    } else if(direction > 0){
-      setHidden(false);
-    }
-  }
-
-  return (
-    <Router history={history}>
-      <Switch>
-        <div className="App" onWheel={(e)=>handleWheel(e)}>
-          <Route exact path="/" component={()=><>
-            {/* <Navigation hidden={hidden} handleClick={handleClick} /> */}
-            <Hero />
-            <Projects refs={refs} />
-            {/* <MinorProjects refs={refs} /> */}
-            {/* <Design refs={refs} /> */}
-            <Footer />
-            </>
-          } />
+  const transitions = useTransition(location, location => location.pathname, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  })
 
 
-          <Route exact path="/contact" component={Contact} />
-        </div>
-
-
-    </Switch>
-
-    </Router>
+  return (transitions.map(({ item: location, props, key }) => (
+    <animated.div key={key} style={props}>
+      <Switch location={location}>
+        <Route exact path="/" component={Home}  />
+        <Route exact path="/contact" component={Contact} />
+        <Route component={Error404} />
+      </Switch>
+    </animated.div>
+  ))
   );
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Content } from './FooterCSS';
 import { Email, GithubImage, Linkedin } from '../../Icons';
 import { FooterBackground } from '../../media';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -9,7 +10,7 @@ const Footer = () => {
       <div className="footer-wrapper footer ">
 
         <div className="footer-icons">
-          <a href="mailto:klauza.dev@gmail.com"><Email /> <span>klauza.dev@gmail.com</span></a>
+          <NavLink to="/contact"><Email /> <span>klauza.dev@gmail.com</span></NavLink>
           <a href="https://github.com/klauza" target="_blank" rel="noopener noreferrer"><GithubImage /> <span>github</span></a>
           <a href="https://www.linkedin.com/in/michal-klauza/" target="_blank" rel="noopener noreferrer"><Linkedin /> <span>linkedin</span></a>
         </div>

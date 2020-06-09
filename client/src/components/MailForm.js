@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Spring } from 'react-spring/renderprops';
+import ReCAPTCHA from "react-google-recaptcha";
 
 const MailForm = () => {
 
@@ -8,8 +9,16 @@ const MailForm = () => {
     company: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    captcha: null
   });
+
+  function onCaptchaChange(value) {
+    setForm({
+      ...form,
+      captcha: value,
+    });
+  }
 
   const handleInputChange = e => {
     setForm({
@@ -20,17 +29,19 @@ const MailForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
 
-    fetch('http://localhost:3001/send', {
+    fetch('/send', {
       method: 'post',
       headers: {
-        'Accept': 'application/json',
+        'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(form)
     }).then((res) => {
       return res.json();
+    }).then((data)=>{
+      console.log(data);
+      alert(data.msg);
     })
 
   }
@@ -79,6 +90,10 @@ const MailForm = () => {
                   <label>Message</label>
                   <textarea name="message" onChange={handleInputChange} rows="5"></textarea>
                 </p>
+                <ReCAPTCHA
+                  sitekey="6LdWn6IZAAAAAKxUn7hGQypxcRUpv5tcfv4vk5zm"
+                  onChange={onCaptchaChange}
+                />
                 <p className="full">
                   <button type="submit">Submit</button>
                 </p>

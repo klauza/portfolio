@@ -1,4 +1,5 @@
 require('dotenv').config();
+var request = require('request');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -9,9 +10,10 @@ const sgMail = require('@sendgrid/mail');
 const app = express();
 app.use(helmet());
 
+
 // accept cors
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3001/send");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
@@ -21,43 +23,74 @@ app.use(bodyParser.json());
 
 app.post('/send', (req, res) => {
 
+  if(
+    req.body.captcha === undefined ||
+    req.body.captcha === '' ||
+    req.body.captcha === null
+  ){
+    return res.json({'success': false, "msg": "Please select captcha"});
+  }
 
-  const output = `
-    <p>You have a new contact request</p>
-    <h3>Contact details</h3>
-    <ul>
-      <li>Name: ${req.body.name}</li>
-      <li>Company: ${req.body.company}</li>
-      <li>Email: ${req.body.email}</li>
-      <li>Phone: ${req.body.phone}</li>
-    </ul>
-    <h3>Message</h3>
-    <p>${req.body.message}</p>
-  `;
+  // Secret key
+  const secretCaptchaKey = process.env.CAPTCHA;
+  
+  // Verify URL
+  const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretCaptchaKey}&response=${req.body.captcha}&remoteip${req.connection.remoteAddress}`;
 
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  const msg = {
-    to: 'klauza.uk@gmail.com',
-    from: 'test@example.com',
-    subject: 'Sending with Twilio SendGrid is Fun',
-    text: 'and easy to do anywhere, even with Node.js',
-    html: output,
-  };
+  // make request to verify url
+  request(verifyUrl, (error,response,body) => {
+    body = JSON.parse(body);
+    console.log(body);
 
-  sgMail.send(msg).then(() => {
-    console.log('Message sent')
-  }).catch((error) => {
-    console.log(error.response.body)
+    // checking if body is successfull
+    // if NOT
+    if(body.success !== undefined && !body.success){
+      return res.json({'success': false, "msg": "Failed captcha verification"});
+    }
+
+    // if IT IS
+    // 1 - send mail
+    const output = `
+      <p>You have a new contact request</p>
+      <h3>Contact details</h3>
+      <ul>
+        <li>Name: ${req.body.name}</li>
+        <li>Company: ${req.body.company}</li>
+        <li>Email: ${req.body.email}</li>
+        <li>Phone: ${req.body.phone}</li>
+      </ul>
+      <h3>Message</h3>
+      <p>${req.body.message}</p>
+    `;
+
+    if(process.env.NODE_ENV === 'production'){
+      sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+      const msg = {
+        to: [process.env.EMAIL_API, req.body.email],
+        from: process.env.EMAIL_API,
+        subject: 'A message from customr via your website',
+        text: 'text',
+        html: output,
+      };
+    
+      sgMail.send(msg).then(() => {
+        console.log('Message sent')
+      }).catch((error) => {
+        console.log(error.response.body)
+      })
+  
+    } else {
+      console.log('mail from localhost was sent');
+    }
+    
+    // 2 inform user about success
+    return res.json({'success': true, "msg": "Captcha passed"});
+
+  })
+    
+
+
 })
-
-  // console.log(output);
-  console.log('mail sent?');
-})
-
-
-// testing sendgrid email
-
-
 
 
 

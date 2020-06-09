@@ -6,16 +6,21 @@ const Wrapper = styled.div`
   position: fixed;
   bottom: 0;
   width: 100%;
+  height: 35px; 
+  background: #000;
+  .hide-mobile{
+    display: none;
+  }
 
-  .box{
+  .box{    
+    height: 100%; 
     display: flex; flex-direction: row;
     justify-items: space-between;
-    background: #000;
+    align-items: center;
     width: 100%;
 
     div{
-      width: 100%;
-      height: 35px;      
+      width: 100%; 
       border: 1px solid red;
       color: #fff;
 
@@ -32,6 +37,24 @@ const Wrapper = styled.div`
 
     transform: translate(${props => props.hide ? "0, -35px" : "0, 0px"});
     transition: transform 100ms linear;
+
+    display: flex;
+    flex-direction: row;
+
+    .hide-mobile{
+      display: block;
+    }
+    .box{
+      
+      // width: 1024px;
+      margin: 0 auto;
+      justify-items: unset;
+      width: auto;
+      div{
+        width: 200px;
+      }
+      
+    }
   }
 
 
@@ -40,13 +63,13 @@ const Wrapper = styled.div`
 const Navigation = ( {hidden, handleClick} ) => {
 
   
-  console.log(hidden);
   
 
   return (
     <Wrapper 
       hide={hidden}
     >
+      <div className="hide-mobile" />
       <div className="box">
         <div onClick={()=>handleClick('a')} className="bullet-1"><span>Main projects</span></div>
         <div onClick={()=>handleClick('b')} className="bullet-2"><span>Side projects</span></div>

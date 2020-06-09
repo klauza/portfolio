@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 
 const MinorProjects = ({refs}) => {
   return (
-    <Wrapper ref={refs['b']} > 
+    <Wrapper ref={refs['b']} style={{paddingTop: "100px"}}> 
       <h1>MINOR PROJECTS</h1>
 
       <div>

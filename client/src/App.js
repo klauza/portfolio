@@ -4,25 +4,20 @@ import { useTransition, animated } from 'react-spring'
 
 // Home
 import Home from './views/Home'; 
-
 // Contact
 import Contact from './views/Contact'; 
-
 // Error404
 import Error404 from './views/Error404'; 
 
 
 function App() {
-
   const location = useLocation()
-  console.log(location);
 
   const transitions = useTransition(location, location => location.pathname, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
   })
-
 
   return (transitions.map(({ item: location, props, key }) => (
     <animated.div key={key} style={props}>

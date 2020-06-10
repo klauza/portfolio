@@ -1,7 +1,7 @@
 import React from 'react';
-import { Bg1, Bg2, Bg3, Bg4 } from '../../Icons';
+import { Bg1, Bg2, Bg3 } from '../../Icons';
 import { BhutanotelBG, NobleLeadersBG, CarServicesBG, SkeletonBG, HeroprojectBG } from '../../Icons';
-import { NobleLeadersIcon, CarServicesIcon, ProtoFolioIcon, BhutanotelIcon, HeroprojectIcon, PhotographyIcon, pwdMakerIcon } from '../../media';
+import { NobleLeadersIcon, CarServicesIcon, ProtoFolioIcon, BhutanotelIcon, HeroprojectIcon } from '../../media';
 
 export const projectList = [
   {

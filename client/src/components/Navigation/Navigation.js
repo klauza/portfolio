@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -23,10 +23,6 @@ const Wrapper = styled.div`
       width: 100%; 
       border: 1px solid red;
       color: #fff;
-
-      span{
-
-      }
     }
   }
 
@@ -45,30 +41,19 @@ const Wrapper = styled.div`
       display: block;
     }
     .box{
-      
-      // width: 1024px;
       margin: 0 auto;
       justify-items: unset;
       width: auto;
       div{
         width: 200px;
       }
-      
     }
   }
-
-
 `;
 
 const Navigation = ( {hidden, handleClick} ) => {
-
-  
-  
-
   return (
-    <Wrapper 
-      hide={hidden}
-    >
+    <Wrapper hide={hidden} >
       <div className="hide-mobile" />
       <div className="box">
         <div onClick={()=>handleClick('a')} className="bullet-1"><span>Main projects</span></div>

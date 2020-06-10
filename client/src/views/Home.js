@@ -2,12 +2,12 @@ import React, { createRef } from 'react'
 import styled from 'styled-components';
 
 // components
+// import Navigation from '../components/Navigation/Navigation';
 import Hero from '../components/Hero';
 import Projects from '../components/Projects';
-import Navigation from '../components/Navigation/Navigation';
-import Footer from '../components/Footer';
 import MinorProjects from '../components/OtherProjects/MinorProjects';
-import Design from '../components/Design/Design';
+// import Design from '../components/Design/Design';
+import Footer from '../components/Footer';
 
 // css
 const Wrapper = styled.div`
@@ -39,6 +39,7 @@ const refs = anchors.reduce((acc, value) => {
 
 
 const Home = () => {
+  /*
 
   const handleClick = id =>
   refs[id].current.scrollIntoView({
@@ -63,7 +64,8 @@ const Home = () => {
       setHidden(false);
     }
   }
-
+  
+  */
 
   return (
     <Wrapper 

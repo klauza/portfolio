@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Container } from './HeroCSS';
 import { herodb } from './db';
 import { Skateboard } from '../../Icons';
@@ -6,13 +6,8 @@ import { Skateboard } from '../../Icons';
 import { Spring } from 'react-spring/renderprops';
 
 const Hero = () => {
-
-
-  
   return (
     <Container>
-      
-      
       <div className="header-text">
       <i><h1>{herodb.top_text}</h1></i>
       </div>
@@ -27,26 +22,19 @@ const Hero = () => {
         {props =>
         <div className="content--left" style={props}>
 
-
             <div className="about-me" >
               <h2><span style={{fontSize: "2.25em"}}>A</span>bout me</h2>
               {herodb.about_me_text.map((item, i) => <p key={i}>{item}</p>)} 
-              
             </div>
           
-      
-
           <div className="about-portfolio">
             <h2><span style={{fontSize: "2.25em"}}>A</span>bout portfolio</h2>
             {herodb.about_portfolio_text.map((item, i) => <p key={i}>{item}</p>)} 
           </div>
           
-   
-
         </div>
         }
        </Spring>
-
 
         <Spring
           delay={650}
@@ -63,7 +51,6 @@ const Hero = () => {
         </Spring>
 
       </div>
-
 
     </Container>
   )

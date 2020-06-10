@@ -3,7 +3,6 @@ import { Wrapper, Card } from './MinorProjectsCSS';
 import { otherProjects } from './db';
 
 const MinorProjects = ({refs}) => {
-  console.log(otherProjects);
   return (
     <Wrapper ref={refs['b']} style={{paddingTop: "100px", background: '#d4d4d4'}}> 
       <h2>Other projects</h2>

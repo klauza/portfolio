@@ -67,9 +67,9 @@ app.post('/send', (req, res) => {
       sgMail.setApiKey(process.env.SENDGRID_API_KEY);
       const msg = {
         to: [process.env.EMAIL_API, req.body.email],
-        from: process.env.EMAIL_API,
-        subject: 'A message from customr via your website',
-        text: 'text',
+        from: { email: process.env.EMAIL_API, name: 'Michal Klauza' },
+        subject: 'A message from klaua-dev.com',
+        text: '.',
         html: output,
       };
     
@@ -95,9 +95,9 @@ app.post('/send', (req, res) => {
 
 
 if(process.env.NODE_ENV === 'production'){
-  app.use( express.static( `${__dirname}/../frontend/build` ) );
+  app.use( express.static( `${__dirname}/client/build` ) );
 
-  app.use('*', (req, res) => res.sendFile(path.resolve(__dirname, '../frontend', 'build', 'index.html')));
+  app.use('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')));
 }
 const PORT = process.env.PORT || 5000;
 

@@ -18,6 +18,7 @@
     "styled-components": "^5.1.0"
   },
   "scripts": {
+    "deploy": "pm2 start ./server.sh --name portfolio-client",
     "svgr": "svgr -d src/Icons/ src/svgr",
     "start": "react-scripts start",
     "build": "react-scripts build",

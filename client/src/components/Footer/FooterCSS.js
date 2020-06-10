@@ -29,9 +29,7 @@ export const Content = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
-      &:hover{
-        text-decoration: underline;
-      }
+
     }
     svg{
       fill: #fff;
@@ -47,7 +45,20 @@ export const Content = styled.div`
       // display: flex; flex-direction: row;
       justify-content: space-around;
       a{
+        width: auto;
         margin: 5px 0;
+        svg, span{
+          transition: transform 0.5s ease;
+        }
+        &:hover svg{
+          transform: translateY(-10px) rotate(-10deg);
+          transition: transform 0.5s ease;
+        }
+        &:hover span{
+          transform: rotate(-30deg);
+          transition: transform 0.5s ease;
+        }
+ 
       }
     }
 

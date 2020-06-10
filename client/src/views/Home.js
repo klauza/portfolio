@@ -4,10 +4,10 @@ import styled from 'styled-components';
 // components
 import Hero from '../components/Hero';
 import Projects from '../components/Projects';
-import Navigation from '../components/Navigation';
+import Navigation from '../components/Navigation/Navigation';
 import Footer from '../components/Footer';
-import MinorProjects from '../components/MinorProjects';
-import Design from '../components/Design';
+import MinorProjects from '../components/OtherProjects/MinorProjects';
+import Design from '../components/Design/Design';
 
 // css
 const Wrapper = styled.div`
@@ -40,10 +40,6 @@ const refs = anchors.reduce((acc, value) => {
 
 const Home = () => {
 
-  
-  
-
-
   const handleClick = id =>
   refs[id].current.scrollIntoView({
     behavior: 'smooth',
@@ -70,12 +66,15 @@ const Home = () => {
 
 
   return (
-    <Wrapper className="App" onWheel={(e)=>handleWheel(e)}>
-      <Navigation hidden={hidden} handleClick={handleClick} />
+    <Wrapper 
+      className="App" 
+      // onWheel={(e)=>handleWheel(e)}
+    >
+      {/* <Navigation hidden={hidden} handleClick={handleClick} /> */}
       <Hero />
       <Projects refs={refs} />
       <MinorProjects refs={refs} />
-      <Design refs={refs} />
+      {/* <Design refs={refs} /> */}
       <Footer />
     </Wrapper>
   )

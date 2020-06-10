@@ -1,5 +1,5 @@
 import React from 'react'
-import MailForm from '../components/MailForm'; 
+import MailForm from '../components/MailForm/MailForm'; 
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 // import { Spring } from 'react-spring/renderprops';

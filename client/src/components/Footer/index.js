@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="footer-wrapper footer ">
 
         <div className="footer-icons">
-          <NavLink to="/contact"><Email /> <span>klauza.dev@gmail.com</span></NavLink>
+          <NavLink to="/contact"><Email /> <span>Contact</span></NavLink>
           <a href="https://github.com/klauza" target="_blank" rel="noopener noreferrer"><GithubImage /> <span>github</span></a>
           <a href="https://www.linkedin.com/in/michal-klauza/" target="_blank" rel="noopener noreferrer"><Linkedin /> <span>linkedin</span></a>
         </div>

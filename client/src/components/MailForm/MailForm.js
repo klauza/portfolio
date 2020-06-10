@@ -76,15 +76,15 @@ const MailForm = () => {
             <div className="contact">
               <form onSubmit={(e)=>handleSubmit(e)}>
                 <div>
-                  <label htmlFor="name">Name</label>
-                  <input type="text" name="name" id="name" placeholder="place your name here" onChange={handleInputChange} />
+                  <label htmlFor="name">Your Name</label>
+                  <input type="text" name="name" id="name" onChange={handleInputChange} />
                 </div>
                 <div>
                   <label htmlFor="subject">Subject</label>
                   <input type="text" name="subject" id="subject" onChange={handleInputChange} />
                 </div>
                 <div>
-                  <label htmlFor="email">Email Address</label>
+                  <label htmlFor="email">Your Email Address</label>
                   <input type="email" name="email" id="email" onChange={handleInputChange} />
                 </div>
                 <div>

@@ -2,20 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Container } from './HeroCSS';
 import { herodb } from './db';
 import { Skateboard } from '../../Icons';
-import { HeroBackground } from '../../media';
 // import delay from 'delay';
 import { Spring } from 'react-spring/renderprops';
 
 const Hero = () => {
 
-  const [startSpring, setStartSpring] = useState(false);
 
-  useEffect(()=>{
-    window.addEventListener('load', setStartSpring(true));
-  }, [])
   
   return (
-    <Container backgroundImage={HeroBackground}>
+    <Container>
       
       
       <div className="header-text">
@@ -26,7 +21,8 @@ const Hero = () => {
 
         <Spring
           delay={500}
-          to={{ transform: startSpring ? "translateY(0px)" : "translateY(100px)", opacity: startSpring ? 1 : 0 }}
+          from={{ opacity: 0 }}
+          to={{ opacity: 1 }}
         >
         {props =>
         <div className="content--left" style={props}>
@@ -54,7 +50,8 @@ const Hero = () => {
 
         <Spring
           delay={650}
-          to={{ opacity: startSpring ? 1 : 0 }}
+          from={{ opacity: 0 }}
+          to={{ opacity: 1 }}
         >
         {props =>
           <div className="content--right" style={props}>

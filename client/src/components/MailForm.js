@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
 import { Spring } from 'react-spring/renderprops';
 import ReCAPTCHA from "react-google-recaptcha";
+import { Wrapper } from './MailFormCSS';
+
+import { useHistory } from 'react-router-dom';
+
+
 
 const MailForm = () => {
+  let history = useHistory();
 
   const [form, setForm] = useState({
     name: '',
-    company: '',
+    subject: '',
     email: '',
     phone: '',
     message: '',
@@ -40,8 +46,17 @@ const MailForm = () => {
     }).then((res) => {
       return res.json();
     }).then((data)=>{
-      console.log(data);
-      alert(data.msg);
+      // console.log(data.msg);
+      if(data.success === true){
+        alert('mail was sent successfully');
+        history.push('/');
+        
+        history.push("/");
+        
+      } else if (data.success === false){
+        alert(data.msg);
+      }
+      return
     })
 
   }
@@ -49,60 +64,46 @@ const MailForm = () => {
   return (
     <Spring
       delay={700}
-      from={{opacity: 0, transform: 'translateY(250px)'}}
-      to={{ opacity: 1, transform: 'translateY(0px)'}}
+      from={{opacity: 0}}
+      to={{ opacity: 1}}
     >
     {props => 
-      <div style={{...props, background: 'orange'}}>
+      <Wrapper style={props}>
         <div className="container">
             
-          <h1 className="brand"><span>me</span> design</h1>
+          <h1 className="header">Contact form</h1>
 
-            <div className="company-info">
-              <h3>me Web Design</h3>
-              <ul>
-                <li><i className="fa fa-road"></i>contact</li>
-                <li><i className="fa fa-phone"></i>me</li>
-                <li><i className="fa fa-envelope"></i>asap</li>
-              </ul>
-            </div>
-            
             <div className="contact">
-              <h3>Email Me</h3>
               <form onSubmit={(e)=>handleSubmit(e)}>
-                <p>
-                  <label>Name</label>
-                  <input type="text" name="name" placeholder="place name here" onChange={handleInputChange} />
-                </p>
-                <p>
-                  <label>Company</label>
-                  <input type="text" name="company" onChange={handleInputChange} />
-                </p>
-                <p>
-                  <label>Email Address</label>
-                  <input type="email" name="email" onChange={handleInputChange} />
-                </p>
-                <p>
-                  <label>Phone Number</label>
-                  <input type="text" name="phone" onChange={handleInputChange} />
-                </p>
-                <p className="full">
+                <div>
+                  <label htmlFor="name">Name</label>
+                  <input type="text" name="name" id="name" placeholder="place your name here" onChange={handleInputChange} />
+                </div>
+                <div>
+                  <label htmlFor="subject">Subject</label>
+                  <input type="text" name="subject" id="subject" onChange={handleInputChange} />
+                </div>
+                <div>
+                  <label htmlFor="email">Email Address</label>
+                  <input type="email" name="email" id="email" onChange={handleInputChange} />
+                </div>
+                <div>
                   <label>Message</label>
                   <textarea name="message" onChange={handleInputChange} rows="5"></textarea>
-                </p>
+                </div>
                 <ReCAPTCHA
                   sitekey="6LdWn6IZAAAAAKxUn7hGQypxcRUpv5tcfv4vk5zm"
                   onChange={onCaptchaChange}
                 />
-                <p className="full">
+                <div>
                   <button type="submit">Submit</button>
-                </p>
+                </div>
               </form>
               
             </div>
 
         </div>
-      </div>
+      </Wrapper>
     }
     </Spring>
   )

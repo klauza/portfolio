@@ -22,7 +22,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/send', (req, res) => {
+  
+    // form inputs validation
+    if(
+      req.body.name === '' ||
+      req.body.subject === '' ||
+      req.body.email === '' ||
+      req.body.message === ''
+    ){
+      return res.json({'success': false, "msg": "Please fill the form correctly"});
+    }
 
+  // captcha validation
   if(
     req.body.captcha === undefined ||
     req.body.captcha === '' ||
@@ -51,13 +62,11 @@ app.post('/send', (req, res) => {
     // if IT IS
     // 1 - send mail
     const output = `
-      <p>You have a new contact request</p>
       <h3>Contact details</h3>
       <ul>
         <li>Name: ${req.body.name}</li>
-        <li>Company: ${req.body.company}</li>
+        <li>Subject: ${req.body.subject}</li>
         <li>Email: ${req.body.email}</li>
-        <li>Phone: ${req.body.phone}</li>
       </ul>
       <h3>Message</h3>
       <p>${req.body.message}</p>
@@ -68,8 +77,8 @@ app.post('/send', (req, res) => {
       const msg = {
         to: [process.env.EMAIL_API, req.body.email],
         from: { email: process.env.EMAIL_API, name: 'Michal Klauza' },
-        subject: 'A message from klaua-dev.com',
-        text: '.',
+        subject: 'A message from klauza-dev.com',
+        text: '---',
         html: output,
       };
     
@@ -79,10 +88,10 @@ app.post('/send', (req, res) => {
         console.log(error.response.body)
       })
   
-    } else {
-      console.log('mail from localhost was sent');
     }
-    
+      
+    console.log('node: mail was sent');
+  
     // 2 inform user about success
     return res.json({'success': true, "msg": "Captcha passed"});
 

@@ -2,8 +2,12 @@
   margin: 0; padding: 0;
   box-sizing: border-box;
 }
+html{
+  background: url('./media/imgs/hero_bg.png') repeat;
+}
 body {
   overflow-x: hidden;
+  overflow-y: scroll;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

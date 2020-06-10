@@ -1,5 +1,6 @@
 require('dotenv').config();
 var request = require('request');
+var session = require('express-session');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -10,6 +11,12 @@ const sgMail = require('@sendgrid/mail');
 const app = express();
 app.use(helmet());
 
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true, sameSite: true }
+}))
 
 // accept cors
 app.use((req, res, next) => {
@@ -17,6 +24,8 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

@@ -81,29 +81,25 @@ app.post('/send', (req, res) => {
       <p>${req.body.message}</p>
     `;
 
-    if(process.env.NODE_ENV === 'production'){
-      sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-      const msg = {
-        to: [process.env.EMAIL_API, req.body.email],
-        from: { email: process.env.EMAIL_API, name: 'Michal Klauza' },
-        subject: 'A message from klauza-dev.com',
-        text: '---',
-        html: output,
-      };
-    
-      sgMail.send(msg).then(() => {
-        console.log('Message sent')
-      }).catch((error) => {
-        console.log(error.response.body)
-      })
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const msg = {
+      to: [process.env.EMAIL_API, req.body.email],
+      from: { email: process.env.EMAIL_API, name: 'Michal Klauza' },
+      subject: 'A message from klauza-dev.com',
+      text: '---',
+      html: output,
+    };
   
-    }
-      
+    sgMail.send(msg).then(() => {
+      console.log('Message sent')
+    }).catch((error) => {
+      console.log(error.response.body)
+    })
+  
     console.log('node: mail was sent');
   
     // 2 inform user about success
     return res.json({'success': true, "msg": "Captcha passed"});
-
   })
     
 

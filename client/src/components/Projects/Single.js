@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { isMobile } from "react-device-detect";
+// import { isMobile } from "react-device-detect";
 
 import { Keyframes, animated, Spring } from 'react-spring/renderprops';
 import delay from 'delay';
 import { Project } from './ProjectsCSS';
 import { Secured, Arrow, TechnicalSupport, Coding, Youtube } from '../../Icons';
 import { projectQty } from './database';
+
+const detectMob = () => {
+  return ( ( window.innerWidth <= 800 ) && ( window.innerHeight <= 600 ) );
+}
 
 // Creates a spring with predefined animation slots
 const Sidebar = Keyframes.Spring({
@@ -21,11 +25,11 @@ const Sidebar = Keyframes.Spring({
 })
 
 const Waves = Keyframes.Spring({
-  open: { delay: 0, x: isMobile ? -20 : 30 },
+  open: { delay: 0, x: 15 },
   // or async functions with side-effects
   close: async call => {
     await delay(400)
-    await call({ delay: 0, x: isMobile ? 80 : 100 })
+    await call({ delay: 0, x: 100 })
   },
 })
 
@@ -44,7 +48,7 @@ const Content = Keyframes.Trail({
 
 
 const Single = ({project}) => {
-
+  
   // ITEMS for content
   const items = [
     <div className="technologies">
@@ -161,7 +165,7 @@ const Single = ({project}) => {
             onClick={toggle}
             className="svg-waves-container noSelect"
             style={{
-              transform: x.interpolate(x => `translate3d(${x+30}%,0,0)`)
+              transform: x.interpolate(x => `translate3d(${x}%,0,0)`)
             }}>
 
               <Spring

@@ -1,16 +1,20 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100vh;
   min-height: 100vh;
   width: 100%;
+  h2{
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
 
-  @media(max-width: 900px){
+  @media(min-width: 900px){
     height: 100%;
     h2{
-      margin-top: 30px;
-      margin-bottom: 15px;
-      text-align: center;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      text-align: left;
     }
   }
 

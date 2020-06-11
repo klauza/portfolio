@@ -217,6 +217,7 @@ export const Project = styled.div`
     justify-content: flex-end;
 
     .svg-waves-container{
+      width: 515px;
       position: relative;
 
       .show-more-less{
@@ -232,6 +233,7 @@ export const Project = styled.div`
         svg{
           fill: white;
           // width: 25px; height: auto;
+          transform: translateX(50%);
         }
 
         @media(max-width: 768px){

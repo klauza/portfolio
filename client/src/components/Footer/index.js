@@ -16,7 +16,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-copyright">
-          © 2018-2020 Klauza
+          <span>© 2018-2020 Klauza</span>
         </div>
       </div>
     </Content>

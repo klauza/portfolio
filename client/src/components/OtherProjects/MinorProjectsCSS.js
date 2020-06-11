@@ -115,6 +115,9 @@ export const Card = styled.div`
     background: ${props => props.colors};
     box-shadow: 0 0 15px 0 rgba(0,0,0,1);
     transform: rotate(45deg);
+    @media(max-width: 768px){
+      transform: unset;
+    }
   }
 
   &:hover .imgBx img{
@@ -122,6 +125,9 @@ export const Card = styled.div`
     max-width: 75px;
     transform: rotate(-45deg);
     opacity: 1;
+    @media(max-width: 768px){
+      transform: unset;
+    }
   }
   &:hover .imgBx::before{
     transition: 0.5s ease-in-out;
